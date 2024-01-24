@@ -3,14 +3,14 @@ import sqlite3
 import click
 from flask import current_app, g # g = global
 
-'''
+"""
 g is a special object that is unique for each request. It is used to store data that might be accessed by multiple functions during the request. The connection is stored and reused instead of creating a new connection if get_db is called a second time in the same request.
 
 current_app is another special object that points to the Flask application handling the request. Since you used an application factory, there is no application object when writing the rest of your code. get_db will be called when the application has been created and is handling a request, so current_app can be used.
 
 sqlite3.connect() establishes a connection to the file pointed at by the DATABASE configuration key. This file doesn’t have to exist yet, and won’t until you initialize the database later.
 
-'''
+"""
 
 
 def get_db():
@@ -47,13 +47,13 @@ def init_db_command():
     init_db()
     click.echo('Initialized the database.')
 
-'''
+"""
 The close_db and init_db_command functions need to be registered with the application instance;
 otherwise, they wont be used by the application.
 
 However, since youre using a factory function, that instance isnt available when writing the functions.
 Instead, write a function that takes an application and does the registration.
-'''
+"""
 # Register with the Application
 # - Import and call this function from the factory.
 # - Place the new code at the end of the factory function before returning the app.
