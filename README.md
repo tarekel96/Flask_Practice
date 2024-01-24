@@ -1,5 +1,7 @@
 # Flask_Practice
 
+Following the Official Flask Blog Tutorial (v 3.0.x):
+
 
 ## Running the Application
 
